@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class SimpleLambdaExpressions {
 
@@ -40,7 +41,18 @@ public class SimpleLambdaExpressions {
         System.out.println(addByMethodRef(10,20));
         //Constructor reference
         System.out.println(constructorRef());
-
+        //Sort elements of the list using streams
+        System.out.println(sortElementsOfListUsingStreams());
+        //get even numbers from list using streams
+        System.out.println(evenNumbersFromListUsingStreams());
+        //convert elements to upper case using streams
+        System.out.println(elementsToUpperCaseUsingStream());
+        //get minimum element from list
+        System.out.println(getMinFromList());
+        //get maximum element from list
+        System.out.println(getMaxFromList());
+        //convert list to array
+        System.out.println(convertListToArray());
 
     }
 
@@ -124,6 +136,30 @@ public class SimpleLambdaExpressions {
     public static SimpleLambdaExpressions constructorRef(){
         ConstructorRef c=SimpleLambdaExpressions::new;
         return c.getSomething();
+    }
+
+    public static List<Integer> sortElementsOfListUsingStreams(){
+        return getElements().stream().sorted((a,b)-> (a > b) ? 1 : (a < b) ? -1 : 0).collect(Collectors.toList());
+    }
+
+    public static List<Integer> evenNumbersFromListUsingStreams(){
+        return getElements().stream().filter(a->a%2==0).collect(Collectors.toList());
+    }
+
+    public static List<String> elementsToUpperCaseUsingStream(){
+        return getListOfCities().stream().map(x->x.toUpperCase()).collect(Collectors.toList());
+    }
+
+    public static int getMinFromList(){
+        return getElements().stream().sorted().min((a,b) -> (a > b) ? 1 : (a <  b) ? -1 :0).get();
+    }
+
+    public static int getMaxFromList(){
+        return getElements().stream().sorted().max((a,b) -> (a > b) ? 1 : (a <  b) ? -1 :0).get();
+    }
+
+    public static Integer[] convertListToArray(){
+        return getElements().stream().toArray(Integer[]::new);
     }
 
     public static List<Integer> getElements() {
