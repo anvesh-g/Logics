@@ -4,13 +4,13 @@ import com.set_1.go.interfaces.Add;
 import com.set_1.go.interfaces.ConstructorRef;
 import com.set_1.go.interfaces.LengthOfString;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toMap;
 
 public class SimpleLambdaExpressions {
 
@@ -53,6 +53,8 @@ public class SimpleLambdaExpressions {
         System.out.println(getMaxFromList());
         //convert list to array
         System.out.println(convertListToArray());
+        //Sort map based on keys
+        System.out.println(sortMapBasedOnKeys());
 
     }
 
@@ -162,6 +164,12 @@ public class SimpleLambdaExpressions {
         return getElements().stream().toArray(Integer[]::new);
     }
 
+    public static Map<Integer,String> sortMapBasedOnKeys(){
+        Map<Integer,String> map=new LinkedHashMap<>(getSampleMap());
+        map.entrySet().stream().sorted(Map.Entry.comparingByKey()).collect(toMap(e -> e.getKey(), e -> e.getValue(), (e1, e2) -> e2));
+        return map.entrySet().stream().sorted(Map.Entry.comparingByKey()).collect(toMap(e -> e.getKey(), e -> e.getValue(), (e1, e2) -> e2,LinkedHashMap::new));
+    }
+
     public static List<Integer> getElements() {
         List<Integer> list = new ArrayList<Integer>();
         list.add(10);
@@ -181,6 +189,17 @@ public class SimpleLambdaExpressions {
         list.add("Chennai");
         list.add("Mumbai");
         return list;
+    }
+
+    public static Map<Integer,String> getSampleMap(){
+        Map<Integer,String> map=new HashMap<Integer,String>();
+        map.put(23,"A");
+        map.put(42,"B");
+        map.put(18,"C");
+        map.put(15,"D");
+        map.put(10,"E");
+        map.put(20,"F");
+        return map;
     }
 
 }
