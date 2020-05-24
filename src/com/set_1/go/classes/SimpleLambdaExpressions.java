@@ -3,11 +3,14 @@ package com.set_1.go.classes;
 import com.set_1.go.interfaces.Add;
 import com.set_1.go.interfaces.ConstructorRef;
 import com.set_1.go.interfaces.LengthOfString;
+import com.sun.source.tree.Tree;
 
+import java.sql.SQLOutput;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toMap;
 
@@ -76,6 +79,49 @@ public class SimpleLambdaExpressions {
         System.out.println(alternateUpperLowerString("anvesh"));
         //count lower case letters in a string
         System.out.println(getCountOfLowerCaseLetters("AnvesH"));
+
+        //diff between map and flatmap
+        List<String> li=new ArrayList<>();
+        li.add("STACKK");
+        li.add("OOVVERRFLOW");
+        mapVsFlatMap(li);
+
+        //getLatestRecordFromDuplicateRecords
+        //first get duplicate records based on id then get latest from duplicates based on date
+        List<Employee> list=new ArrayList<Employee>();
+        list.add(new Employee(1,"A", System.currentTimeMillis()));
+        list.add(new Employee(2,"B",System.currentTimeMillis()));
+        list.add(new Employee(1,"A",System.currentTimeMillis()+1));
+        list.add(new Employee(3,"C",System.currentTimeMillis()));
+        list.add(new Employee(3,"C",System.currentTimeMillis()+2));
+        getLatestRecordFromDuplicateRecords(list).forEach(
+                a->{
+                    System.out.println(a.get().getId()+"=> "+a.get().getName()+"=> "+a.get().getDate());
+                }
+        );
+
+    }
+
+    public static void mapVsFlatMap(List<String> li){
+        List<String[]> li2=li.stream().map(s->s.split("")).distinct().collect(Collectors.toList());
+        List<Stream<String>> li3=li.stream().map(s->s.split("")).map(Arrays::stream).distinct().collect(Collectors.toList());
+        System.out.println(li2+"\n"+li3);
+        List<String> li4=li.stream().map(s->s.split("")).flatMap(Arrays::stream).distinct().collect(Collectors.toList());
+        System.out.println("-- "+li4);
+
+    }
+
+    private static List<Optional<Employee>> getLatestRecordFromDuplicateRecords(List<Employee> listOfEmployees){
+        return listOfEmployees.stream()
+                .collect(Collectors.groupingBy(Employee::getId))
+                .values()
+                .stream()
+                .filter(employees -> employees.size() > 1)
+                .flatMap(Collection::stream)
+                .collect(Collectors.toList())
+                .stream()
+                .collect(Collectors.groupingBy(Employee::getId,Collectors.maxBy(Comparator.comparingLong(Employee::getDate))))
+                .values().stream().collect(Collectors.toList());
 
     }
 
