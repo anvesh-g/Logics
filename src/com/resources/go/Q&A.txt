@@ -1,0 +1,17 @@
+Q) What is the purpose of private constructor?
+A) The use of private constructor is to serve singleton classes. A singleton class is one which limits the number of objects creation to one.
+   Using private constructor we can ensure that no more than one object can be created at a time. By providing a private constructor you prevent class
+   instances from being created in any place other than this very class
+Q) How do you create immutable class in Java
+A) 1) Declare the class as final so it can’t be extended.
+   2) Make all fields private so that direct access is not allowed.
+   3) Don’t provide setter methods for variables.
+   4) Make all mutable fields final so that its value can be assigned only once.
+   5) Initialize all the fields via a constructor performing deep copy
+   6) Perform cloning of objects in the getter methods to return a copy rather than returning the actual object
+      reference.
+Q) What is Deep copy and shallow copy
+A) Shallow copy means just referencing to the existing object where as deep copy means creating new object
+   referencing to it
+Q) In case of overloaded methods eg calculate(String s) and calculate(Object o) if you call Calculate(null) which method will be called
+A) calculate(String s)
