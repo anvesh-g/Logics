@@ -1,7 +1,6 @@
 package com.set_1.go.classes;
 
-import java.util.Date;
-
+// Utility POJO
 public class Employee {
     private int id;
     private String name;

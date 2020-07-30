@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public class JavaFAQPrograms {
+public class FailFastAndFailSafe {
     public static void main(String[] args) {
         List<String> name = new ArrayList<String>();
         name.add("a");
@@ -13,7 +13,7 @@ public class JavaFAQPrograms {
         name.add("c");
         name.add("d");
         name.add("e");
-        JavaFAQPrograms jfp=new JavaFAQPrograms();
+        FailFastAndFailSafe jfp=new FailFastAndFailSafe();
 //        jfp.withFailFast(name);
         jfp.withFailSafe(name);
 
