@@ -1,0 +1,19 @@
+package com.designPatterns.mediator.usingObserver.fx;
+
+
+
+public class ListBox extends UIControl {
+    private String selection;
+
+
+
+    public String getSelection() {
+        return selection;
+    }
+
+    public void setSelection(String selection) {
+        this.selection = selection;
+        notifyObservers();
+    }
+
+}

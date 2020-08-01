@@ -21,28 +21,7 @@ public class BrowserHistory {
         return new ListIterator(this);
     }
 
-    public class ListIterator implements Iterator<String>{
-
-        private BrowserHistory browserHistory;
-        private int index;
-
-        public ListIterator(BrowserHistory browserHistory){
-            this.browserHistory=browserHistory;
-        }
-
-        @Override
-        public boolean hasNext() {
-            return (index < browserHistory.urls.size());
-        }
-
-        @Override
-        public String current() {
-            return browserHistory.urls.get(index);
-        }
-
-        @Override
-        public void next() {
-            index++;
-        }
+    public List<String> getUrls() {
+        return urls;
     }
 }

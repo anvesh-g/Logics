@@ -12,7 +12,7 @@ public class History {
     }
 
     public EditorState pop(){
-        var lastState=states.get(states.size()-1);
+        EditorState lastState=states.get(states.size()-1);
         states.remove(states.size()-1);
         return lastState;
     }

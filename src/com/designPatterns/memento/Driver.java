@@ -2,8 +2,8 @@ package com.designPatterns.memento;
 
 public class Driver {
     public static void main(String[] args) {
-        var editor=new Editor();
-        var history=new History();
+        Editor editor=new Editor();
+        History history=new History();
 
         editor.setContent("a");
         history.push(editor.createState());

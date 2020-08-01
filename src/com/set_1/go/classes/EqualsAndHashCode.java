@@ -1,4 +1,4 @@
-package src.com.set_1.go.classes;
+package com.set_1.go.classes;
 
 import java.util.ArrayList;
 import java.util.HashMap;
