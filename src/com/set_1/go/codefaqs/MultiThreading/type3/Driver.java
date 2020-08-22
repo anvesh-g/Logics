@@ -1,4 +1,4 @@
-package src.com.set_1.go.codefaqs.MultiThreading.type3;
+package com.set_1.go.codefaqs.MultiThreading.type3;
 
 import java.util.concurrent.*;
 

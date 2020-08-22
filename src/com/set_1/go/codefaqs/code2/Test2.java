@@ -1,4 +1,4 @@
-package src.com.set_1.go.codefaqs.code2;
+package com.set_1.go.codefaqs.code2;
 
 public class Test2 extends Test1 {
     public void m1(){

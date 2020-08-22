@@ -1,4 +1,4 @@
-package src.com.set_1.go.codefaqs;
+package com.set_1.go.codefaqs;
 
 public class Overloading {
 

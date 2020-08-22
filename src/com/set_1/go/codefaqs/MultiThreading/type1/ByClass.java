@@ -1,4 +1,4 @@
-package src.com.set_1.go.codefaqs.MultiThreading.type1;
+package com.set_1.go.codefaqs.MultiThreading.type1;
 
 public class ByClass  extends Thread{
 

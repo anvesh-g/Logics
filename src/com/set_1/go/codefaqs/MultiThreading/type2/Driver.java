@@ -1,4 +1,4 @@
-package src.com.set_1.go.codefaqs.MultiThreading.type2;
+package com.set_1.go.codefaqs.MultiThreading.type2;
 
 public class Driver  {
 

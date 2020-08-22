@@ -1,4 +1,4 @@
-package src.com.set_1.go.codefaqs.customExceptions;
+package com.set_1.go.codefaqs.customExceptions;
 
 public class MyOwnException extends Exception {
 
