@@ -16,6 +16,7 @@ public class Driver {
 
         g.render();
         g.move();
+        g.test();
 
     }
 }

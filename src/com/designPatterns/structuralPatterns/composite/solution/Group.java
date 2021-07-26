@@ -23,4 +23,11 @@ public class Group implements Composite {
             composite.move();
         }
     }
+
+    @Override
+    public void test() {
+        for (Composite composite:composites) {
+            composite.test();
+        }
+    }
 }

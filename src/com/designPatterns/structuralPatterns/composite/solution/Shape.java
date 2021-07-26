@@ -16,4 +16,9 @@ public class Shape implements Composite{
     public void render() {
         System.out.println("render shape "+name);
     }
+
+    @Override
+    public void test() {
+        System.out.println("test--");
+    }
 }
